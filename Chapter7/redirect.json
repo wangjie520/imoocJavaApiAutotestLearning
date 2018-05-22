@@ -1,0 +1,30 @@
+[
+  {
+    "description":"重定向到百度",
+    "request":{
+      "uri":"/redirectmemo"
+      },
+    "redirectTo":"http://www.baidu.com"
+  },
+  {
+    "description":"重定向new",
+    "request":{
+      "uri":"/redirectnew"
+    },
+    "redirectTo":"/wangjieinfo"
+  },
+
+  {
+    "description":"wangjieinfo重定向的页面",
+    "request":{
+      "uri":"/wangjieinfo"
+    },
+    "response":{
+      "json":{
+        "name":"wangjie",
+        "sex":"man",
+        "status":0
+      }
+    }
+  }
+  ]
