@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间mapper,如果有多个mapper文件，这个必须唯一 -->
+<mapper namespace="com.course.model.mapper">
+<!--数据库字段与model名字不一致时进行匹配-->
+    <resultMap id="addMenuTestMap" type="com.course.model.addMenuTest">
+        <id property="id" column="id"/>
+        <result property="storeId" column="store_id"/>
+    </resultMap>
+    <resultMap id="MenuMap" type="com.course.model.Menu">
+        <id property="id" column="id"/>
+        <result property="storeId" column="store_id"/>
+    </resultMap>
+
+    <!--添加菜单case-->
+    <select id="addMenu" parameterType="Integer"  resultType="com.course.model.addMenuTest" resultMap="addMenuTestMap">
+
+        select * from addMenutest
+        where id = #{id};
+    </select>
+    <!--验证菜单表是否插入数据成功-->
+    <select id="addMenuTest" parameterType="com.course.model.addMenuTest" resultType="com.course.model.Menu" resultMap="MenuMap">
+        select id,name,store_id,price from Menu
+        <trim prefix="WHERE" prefixOverrides="and">
+            <if test="null != id and '' !=id">
+                AND id=#{id}
+            </if>
+
+            <if test="null != storeId and '' !=storeId">
+                AND store_id=#{storeId}
+            </if>
+            <if test="null != price and '' !=price">
+                AND price=#{price}
+            </if>
+        </trim>
+    </select>
+    <select id="MenuModelTest" resultType="com.course.model.Menu" resultMap="MenuMap">
+        select id,name,store_id,price from Menu
+        where id=777 and store_id=1 and price=50
+    </select>
+</mapper>

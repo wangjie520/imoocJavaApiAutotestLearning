@@ -1,15 +1,28 @@
 [
   {
-    "description":"请求必须带cookie",
+    "description":"get请求返回cookies",
+    "request":{
+      "uri":"/login",
+      "method":"get"
+    },
+    "response":{
+      "text":"with cookies",
+      "cookies":{
+        "token":"ABC"
+      }
+    }
+  },
+  {
+    "description":"get请求必须带cookie",
     "request":{
       "uri":"/get/withcookies",
       "method":"get",
       "cookies":{
-        "login":"true"
+        "token":"ABC"
       }
     },
     "response":{
-      "text":"with cookies"
+      "text":"with cookies get请求成功"
     }
   },
 
@@ -19,7 +32,7 @@
       "uri":"/post/withcookies",
       "method":"post",
       "cookies":{
-        "login":"true"
+        "token":"ABC"
       },
       "json":{
         "name":"huanhansan",
