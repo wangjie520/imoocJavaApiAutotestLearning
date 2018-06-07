@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="test">
+    <test name="testMethodDemo">
+        <classes>
+            <class name="com.chapter6.report.ExtendDemo">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                    <include name="test3"/>
+                    <include name="logDemo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <listeners>
+       <!-- <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>翻不了墙加载不了样式-->
+        <listener class-name="com.chapter6.report.ExtentTestNGIReporterListener"/>
+    </listeners>
+</suite>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.course">
+    <select id="getMenuCount" resultType="Integer">
+        select count(*) from menu;
+
+    </select>
+    <insert id="addMenu" parameterType="com.course.model.Menu">
+        insert into menu(id,name,store_id,price)
+        values(#{id},#{name},#{storeId},#{price})
+    </insert>
+    <update id="updateMenu" parameterType="com.course.model.Menu">
+        update menu set name=#{name},store_id=#{storeId},price=#{price}
+        where id=#{id}
+    </update>
+    <delete id="deleteMenu" parameterType="Integer">
+        delete from menu where id=#{id}
+    </delete>
+
+
+
+</mapper>

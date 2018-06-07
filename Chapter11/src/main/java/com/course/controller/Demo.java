@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Log4j
-@Api(value="/mybatis",description ="mybatis增删改查" )
+@Api(value="/mybatis",description ="增删改查" )
 @RequestMapping(value="/mybatis")
 @RestController
 public class Demo {
